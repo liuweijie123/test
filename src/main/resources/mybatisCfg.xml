@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration  
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>  
+    <!-- 置顶数据库连接信息的位置 -->  
+    <properties resource="db.properties"/>  
+      
+    <!-- com.lwj.entity下的所有类定义别名 -->  
+    <typeAliases>  
+        <!-- <typeAlias type="com.xin.mybatis.beans.Student" alias="Student"/> -->  
+        <package name="com.lwj.entity"/>  
+    </typeAliases>  
+  
+    <!-- 配置环境变量，可以配置多个，有默认值 -->  
+    <environments default="local">  
+        <environment id="local">  
+            <transactionManager type="JDBC" />    <!-- 事务 -->  
+            <dataSource type="POOLED">            <!-- 数据源  连接池POOLED -->  
+                <property name="driver" value="${jdbc.driver}"/>  
+                <property name="url" value="${jdbc.url}"/>  
+                <property name="username" value="${jdbc.username}"/>  
+                <property name="password" value="${jdbc.password}"/>  
+            </dataSource>  
+        </environment>  
+    </environments>  
+      
+    <!-- 配置映射文件 -->  
+    <mappers>  
+        <mapper resource="com/lwj/mapper/UserMapper.xml"/>  
+    </mappers>  
+</configuration>  
